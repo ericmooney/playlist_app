@@ -1,12 +1,17 @@
 Playlist::Application.routes.draw do
   resources :lists
   resources :songs
+
   get "/users" => 'users#index'
   get "/users/new" => 'users#new'
+  put "/users/create" => 'users#create'
 
-  post "/users/create" => 'users#create'
+  get "/search/new" => 'search#new', :as => "new_search"
+  get "/search/results" => 'search#results', :as => "search_results"
+  post "/search/add_songs" => 'search#add_songs', :as => "add_songs"
 
-  root :to => 'lists#index'
+  root :to => 'lists#home'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

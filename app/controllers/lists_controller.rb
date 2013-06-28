@@ -3,10 +3,22 @@ class ListsController < ApplicationController
     @users = User.all
   end
 
+  def home
+    @lists = List.all
+  end
+
+
+  def show
+    @list = List.find(params[:id])
+  end
+
   def new
+    @list = List.new
   end
 
   def create
+    @list = List.create(params[:list])
+    redirect_to root_path
   end
 
   def edit
@@ -18,6 +30,5 @@ class ListsController < ApplicationController
   def destroy
   end
 
-  def show
-  end
+
 end

@@ -5,6 +5,7 @@
   <thead>
     <tr>
       <th> Playlists for <%= user.name %></th>
+      <th><%= link_to "Create a new playlist", new_list_path %>
     </tr>
   </thead>
   <tbody>
@@ -16,3 +17,4 @@
   </tbody>
 </table>
 <% end %>
+
