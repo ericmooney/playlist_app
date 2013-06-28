@@ -14,7 +14,7 @@
 
 class Song < ActiveRecord::Base
   has_and_belongs_to_many :lists
-  attr_accessible :name, :soundcloud_id, :url, :description, :artist
+  attr_accessible :name, :soundcloud_id, :url, :description, :query
 
   def Song.search_soundcloud(query)
     client = Soundcloud.new(
@@ -28,9 +28,10 @@ class Song < ActiveRecord::Base
         :name => t["title"],
         :description => t["description"],
         :url => t["permalink_url"],
-        :soundcloud_id => t["id"]
+        :soundcloud_id => t["id"].to_s,
+        :query => query
       }
-      Song.create(track)
+      Song.find_or_create_by_soundcloud_id(track)
     end
   end
 end

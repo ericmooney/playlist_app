@@ -1,0 +1,8 @@
+= form_for("list", :url => add_songs_path, :method => "put") do |f|
+  - @results.each do |track|
+    %div
+      = check_box_tag("list[song_ids][]", track.id)
+      = f.label(track.id, truncate(track.name, length: 25))
+  = f.select("list_id", options_from_collection_for_select(List.all, "id", "name"))
+  = f.button("Save Playlist")
+
