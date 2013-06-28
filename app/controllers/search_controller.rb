@@ -4,6 +4,8 @@ class SearchController < ApplicationController
   end
 
   def results
+    binding.pry
+
   end
 
   def add_songs

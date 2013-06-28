@@ -14,7 +14,7 @@ gem 'meta_request'
 gem 'haml'
 gem 'quiet_assets', :group => :development
 gem 'soundcloud'
-
+gem 'annotate'
 
 # Gems used only for assets and not required
 # in production environments by default.
