@@ -1,2 +1,18 @@
-<h1>Lists#index</h1>
-<p>Find me in app/views/lists/index.html.erb</p>
+<h1>Playlistr</h1>
+
+<% @users.each do |user| %>
+<table>
+  <thead>
+    <tr>
+      <th> Playlists for <%= user.name %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= user.lists.each do |list| %>
+      <tr>
+        <td><%= list.name %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
