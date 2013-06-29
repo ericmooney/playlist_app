@@ -1,3 +1,7 @@
 %h2 "Songs for Playlist: '#{@list.name}'"
 
 = link_to "Back to all Playlists", root_path
+
+%ul
+  - @list.songs.each do |song|
+    %li= song.embed_info.html_safe

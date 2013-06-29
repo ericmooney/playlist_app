@@ -1,4 +1,4 @@
-= form_for("list", :url => add_songs_path, :method => "put") do |f|
+= form_for("list", :url => add_songs_path, :method => "post") do |f|
   - @results.each do |track|
     %div
       = check_box_tag("list[song_ids][]", track.id)

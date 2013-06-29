@@ -34,4 +34,14 @@ class Song < ActiveRecord::Base
       Song.find_or_create_by_soundcloud_id(track)
     end
   end
+
+  def embed_info
+    client = Soundcloud.new(
+      :client_id => '7715196c0f198b8b9b8f75fba2c30f8b',
+      :client_secret => '825306a93b9c97828115155393e07db6'
+      )
+    embed_info = client.get('/oembed', :url => self.url)
+    embed_info['html']
+  end
+
 end

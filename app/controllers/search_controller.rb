@@ -11,5 +11,6 @@ class SearchController < ApplicationController
   def add_songs
     @playlist = List.find(params["list"]["list_id"])
     @playlist.song_ids = params["list"]["song_ids"]
+    redirect_to list_path(@playlist)
   end
 end
